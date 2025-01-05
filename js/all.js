@@ -202,6 +202,23 @@ if (window.location.pathname.includes('todolist.html')) {
         api.todoListAPI(nowAuthorization,"completed");
     });
 
-    
+    clearBtn.addEventListener("click",e => {
+        e.preventDefault();
+
+        Swal.fire({
+            title: "確定要清除已完成待辦項目嗎 ?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "確定",
+            cancelButtonText: "取消"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                api.todoListAPI(nowAuthorization,"clear");
+            }
+          });
+        
+    });
 }
 

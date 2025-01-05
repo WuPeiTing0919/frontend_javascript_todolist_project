@@ -20,7 +20,7 @@ let mytodoList = [];
 
 // 登入
 export function loginAPI(loginEmail_txt,loginPwd_txt){
-    axios.post(`${loginData}/users/sign_in`,{
+    axios.post(`${apiUrl}/users/sign_in`,{
         "user": {
           "email": loginEmail_txt,
           "password": loginPwd_txt
@@ -129,15 +129,30 @@ export async function todoListAPI(authorization,status){
     let todoCount = 0;
     mytodoList = "";
 
-    if (res.data.todos.length > 0){
-      res.data.todos.forEach(item => {
-        if (item.completed_at != null){
-          completeAt = "checked";
-        }else{
-          todoCount ++;
-          completeAt = "";
-        }
+    res.data.todos.forEach(item => {
+      if (item.completed_at == null){
+        todoCount ++;
+      }
+    })
 
+    if (todoCount > 0){
+      todoCount = 0;
+      res.data.todos.forEach(item => {
+        if (status != "clear") {
+          if (item.completed_at != null){
+            completeAt = "checked";
+          }else{
+            todoCount ++;
+            completeAt = "";
+          }
+        }else{
+          if (item.completed_at != null){
+            completeAt = "";
+            toggleTodoAPI(authorization,item.id);
+          }
+          todoCount ++;
+        }
+        
         let mydataString = `<li data-id="${item.id}">
                           <label class="checkbox">
                               <div class="checkbox_item">
@@ -156,18 +171,33 @@ export async function todoListAPI(authorization,status){
           mytodoList += mydataString;
         }else if (status == "tobecompleted" && completeAt == ""){
           mytodoList += mydataString;
+        }else if (status == "clear"){
+          mytodoList += mydataString;
         }
         
-        todoListUL.innerHTML = mytodoList;
-        todoListCount.textContent = `${todoCount} 待完成項目`;
-        
-        todoContent.classList.remove('none');         
-        todoContent.classList.add('block');
-        emptyContent.classList.add('none');
-        emptyContent.classList.remove('block');
-
-        deleteEditBtn(authorization);
       });
+
+      todoListUL.innerHTML = mytodoList;
+      if (status == "all"){
+        todoListCount.textContent = `全部 ${res.data.todos.length} 個項目，${todoCount} 待完成項目`;
+      
+      }else if (status == "completed"){
+        todoListCount.textContent = `全部 ${res.data.todos.length} 個項目，${res.data.todos.length - todoCount} 已完成項目`;
+      
+      }else if (status == "tobecompleted"){
+        todoListCount.textContent = `全部 ${res.data.todos.length} 個項目，${todoCount} 待完成項目`;
+      
+      }else if (status == "clear"){
+        todoListCount.textContent = `全部 ${res.data.todos.length} 個項目，${todoCount} 待完成項目`;
+      }
+
+
+      todoContent.classList.remove('none');         
+      todoContent.classList.add('block');
+      emptyContent.classList.add('none');
+      emptyContent.classList.remove('block');
+
+      deleteEditBtn(authorization);
     }else{
       todoContent.classList.add('none');         
       todoContent.classList.remove('block');

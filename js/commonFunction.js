@@ -131,6 +131,8 @@ export function deleteEditBtn(authorization) {
     // 更新待辦完成度按鈕
     toggleBtn.forEach((item,index) => {
         item.addEventListener("click",e => {
+            e.preventDefault();
+
             api.toggleTodoAPI(authorization,todolistID[index].dataset.id);
         })
     });
