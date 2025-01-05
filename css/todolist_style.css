@@ -1,0 +1,276 @@
+*,*:after,*:before{
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(172.7deg, #FFD370 5.12%, #FFD370 53.33%, #FFD370 53.44%, #FFFFFF 53.45%, #FFFFFF 94.32%);
+    background-repeat: no-repeat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.wrap{
+    width: 1028px;
+    margin: 0 auto;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 16px 32px;
+    font-weight: bold;
+}
+
+.header h1{
+    width: 242px;
+    height: 39px;
+    background: url("../img/logo.png");
+
+    text-indent: 101%;
+    white-space: wrap;
+    overflow: hidden;
+}
+
+.header .user{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    font-size: 16px;
+    line-height: 23.17px;
+}
+
+.header .user a{
+    color: #333333;
+}
+
+.header .user a:hover{
+    text-decoration: underline;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 24px 264px;
+}
+
+.content .addForm{
+    width: 100%;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.content .addForm input{
+    width: 100%;
+    padding: 12px 16px;
+
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(0,0,0,0.3);
+    font-size: 16px;
+    border: none;
+}
+
+.content .addForm button{
+    position: absolute;
+    top : 4px;
+    right: 4px;
+
+    background-color: #333333;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    padding: 4px 8px;
+}
+
+.content .addForm_content{
+    width: 100%;
+
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(0,0,0,0.3);
+}
+
+.block{
+    display: block;
+}
+
+.none{
+    display: none;
+}
+
+.addForm_content .addForm_nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: bold;
+}
+
+.addForm_content .addForm_nav a{
+    display: block;
+    padding: 16px 64px;
+
+    color: #9F9A91;
+    font-size: 14px;
+    line-height: 20.27px;
+
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.addForm_content .addForm_nav .selected,
+.addForm_content .addForm_nav a:hover{
+    border-bottom: 2px solid #333333;
+    color: #333333;
+}
+
+.addForm_content .addForm_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 14px;
+    line-height: 20.27px;
+
+    margin: 16px 48px 24px 24px;
+}
+
+.addForm_content .addForm_footer p{
+    color: #333333;
+}
+
+.addForm_content .addForm_footer a{
+    color: #9F9A91;
+}
+
+.addForm_content .addForm_footer a:hover{
+    text-decoration: underline;
+}
+
+.addForm_content .addForm_todolist{
+    margin: 23px 0px 0px 24px;
+    padding-right: 48px;
+    position: relative;
+}
+
+.addForm_content .addForm_todolist li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    margin-top: 16px;
+}
+
+.addForm_content .addForm_todolist .checkbox{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    position: relative;
+
+    padding-left: 35px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.addForm_todolist .checkbox input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.addForm_todolist .checkbox .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+
+    border-radius: 5px;
+    border: 1px solid #9F9A91;
+    background-color: white;
+
+    cursor: pointer;
+}
+
+.addForm_todolist  input:checked ~ .checkmark {
+    border: none;
+}
+  
+.addForm_todolist .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.addForm_todolist input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.addForm_todolist .checkmark:after{
+    left: 7px;
+    top: 2px;
+    width: 8px;
+    height: 13px;
+    
+    border: solid #FFD370;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.addForm_todolist li .checkbox_content{
+    color: #333333;
+    font-size: 14px;
+    line-height: 20.27px;
+}
+
+.addForm_todolist input:checked ~ .checkbox_content{
+    color: #9F9A91;
+    text-decoration: line-through;
+}
+  
+.addForm_todolist .edit{
+    opacity: 0;
+    color: #333333;
+}
+
+.addForm_todolist .delete{
+    opacity: 0;
+
+    position: absolute;
+    right: 18px;
+    padding-left: 18px;
+    padding-bottom: 16px;
+
+    color: #333333;
+}
+
+.addForm_todolist li:hover .edit,
+.addForm_todolist li:hover .delete{
+    opacity: 1;
+}
+
+.addForm_Empty{
+    margin: 60px 0px;
+    text-align: center;
+}
+
+.addForm_Empty p{
+    color: #333333;
+    font-size: 16px;
+    line-height: 23.17px;
+    margin-bottom: 16px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnLine TodoList | 最實用的線上代辦事項服務</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="wrap">
+        <img src="img/todolist.png" alt="todolist圖片">
+        <div class="main login">
+            <h2>最實用的線上代辦事項服務</h2>
+            <form action="index.html">
+                <div class="form_item">
+                    <label for="Email">Email</label>
+                    <input type="email" name="Email" id="Email" placeholder="請輸入Email" required>
+                    <p class="remindText remindText_Email">1</p>
+                </div>
+                <div class="form_item">
+                    <div class="pwdTile">
+                        <label for="password">密碼</label>
+                        <button><i class="fa-solid fa-eye-slash"></i></button>
+                    </div>
+                    <input type="password" name="password" id="password" placeholder="請輸入密碼" required>
+                    <p class="remindText remindText_pwd">1</p>
+                </div>
+                <input type="submit" value="登入">
+                <a href="register.html">註冊帳號</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module"src="js/all.js"></script>
+</body>
+</html>

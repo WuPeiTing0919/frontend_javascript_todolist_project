@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnLine TodoList | 待辦清單</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/todolist_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <h1><a href="todolist.html">logo</a></h1>
+            <div class="user">
+                <p class="userName">王小明的代辦</p>
+                <a class="signOut" href="#">登出</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="addForm">
+                <input type="text" name="todolistItem" id="todolistItem" placeholder="新增待辦事項">
+                <button class="addTodolist"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            
+            <div class="addForm_content none">
+                <ul class="addForm_nav">
+                    <li><a class="all selected" href="#">全部</a></li>
+                    <li><a class="tobeCompleted" href="#">待完成</a></li>
+                    <li><a class="completed" href="#">已完成</a></li>
+                </ul>
+                
+                <ul class="addForm_todolist">
+                </ul>
+
+                <div class="addForm_footer">
+                    <p class="allListCount">待完成項目</p>
+                    <a class="clearAllList" href="#">清除已完成項目</a>
+                </div>
+            </div>
+            
+            <div class="addForm_Empty block">
+                <p class="emptyContent">目前尚無待辦事項</p>
+                <img class="emptyImg" src="img/write.png" alt="無待辦事項圖片">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module"src="js/all.js"></script>
+</body>
+</html>

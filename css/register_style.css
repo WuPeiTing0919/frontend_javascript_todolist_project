@@ -1,0 +1,120 @@
+*,*:after,*:before{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #FFD370;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.wrap{
+    width: 1028px;
+    margin: 0 auto;
+    padding: 87px 116px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 103px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.main h2{
+    font-size: 24px;
+    line-height: 34.75px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.main form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-weight: bold;
+}
+
+.main form .form_item{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form_item .pwdTile{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_item label{
+    font-size: 14px;
+    line-height: 20.27px;
+    color: #333333;
+}
+
+.form_item button{
+    border: none;
+    background: none;
+}
+
+.form_item input{
+    width: 304px;
+    padding: 12px 16px;
+
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+.form_item .remindText{
+    font-size: 14px;
+    line-height: 20.27px;
+    color: #D87355;
+
+    visibility: hidden;
+}
+
+.form_item .visibility{
+    visibility: visible;
+}
+
+.main form input[type="submit"]{
+    width: 160px;
+    align-self: center;
+
+    background-color: #333333;
+    color: white;
+    font-size: 16px;
+    line-height: 23.17px;
+
+    border-radius: 10px;
+    border: none;
+    padding: 12px 48px;
+    margin: 10px 0;
+
+    cursor: pointer;
+}
+
+.main form input[type="submit"]:hover{
+    background-color: #575550;
+}
+
+.main form a{
+    align-self: center;
+
+    color: #333333;
+    font-size: 16px;
+    line-height: 23.17px;
+}
+
+.main form a:hover{
+    text-decoration: underline;
+}
